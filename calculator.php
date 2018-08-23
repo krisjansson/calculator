@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <title>Calculator</title>
 </head>
+	
 <style>
 	table {
 		border: 5px groove #075BCD;
@@ -19,58 +20,60 @@
 	}
 	
 	</style>
+	
 <body>
 	
-	<?php
+<?php
 
-if( isset( $_GET['calculate'] ))
+	if( isset( $_GET['calculate'] ))
 
-{
-$operator=$_GET['operator'];
+	{
+	$operator=$_GET['operator'];
 
-		if($operator=="+")
-		{
-		$add1 = $_GET['fvalue'];
-		$add2 = $_GET['lvalue'];
-		$res= $add1 + $add2;
+			if($operator=="+")
+			{
+			$add1 = $_GET['fvalue'];
+			$add2 = $_GET['lvalue'];
+			$res= $add1 + $add2;
+			}
+
+			elseif($operator=="-")
+			{
+			$add1 = $_GET['fvalue'];
+			$add2 = $_GET['lvalue'];
+			$res= $add1 - $add2;
+			}
+
+			elseif($operator=="*")
+			{
+			$add1 = $_GET['fvalue'];
+			$add2 = $_GET['lvalue'];
+			$res =$add1 * $add2;
+
+			}
+
+			elseif($operator=="/")
+			{
+			$add1 = $_GET['fvalue'];
+			$add2 = $_GET['lvalue'];
+			$res= $add1 / $add2;
+
+			}
+
 		}
-		elseif($operator=="-")
-		{
-		$add1 = $_GET['fvalue'];
-		$add2 = $_GET['lvalue'];
-		$res= $add1 - $add2;
-		}
-	
-		elseif($operator=="*")
-		{
-		$add1 = $_GET['fvalue'];
-		$add2 = $_GET['lvalue'];
-		$res =$add1 * $add2;
-
-		}
-
-		elseif($operator=="/")
-		{
-		$add1 = $_GET['fvalue'];
-		$add2 = $_GET['lvalue'];
-		$res= $add1 / $add2;
-
-		}
-
-	}
 
 ?>
 
 <form>
 
-<table>
-	<td>CALCULATOR 2000</td>
+	<table>
+		<td>CALCULATOR 2000</td>
            <tr>
                <td>
                     <input name="fvalue" type="text" placeholder="Any number"/>
 				</td>
             <tr>
-	<td>
+		<td>
             <select name="operator">
 				
 				<option>options</option>
@@ -80,15 +83,13 @@ $operator=$_GET['operator'];
 				<option>/</option>
 						
 			</select>
-	</td>
+		</td>
                </tr>
             <tr>
- 
                 <td>
                     <input name="lvalue" type="text" placeholder="Any number"/></td>
             </tr>
             <tr>
-
                 <td><input type="submit" name="calculate" value="Calculate" /></td>
             </tr>
             <tr>
@@ -97,6 +98,7 @@ $operator=$_GET['operator'];
        </table>
 
  </form>
+	
 	<?php if($_GET['fvalue']==NULL || $_GET['lvalue']==NULL)
 		{
 	echo "<h1>Enter Something in both boxes</h1>";
