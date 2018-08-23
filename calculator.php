@@ -51,7 +51,6 @@ $operator=$_GET['operator'];
 
 		elseif($operator=="/")
 		{
-
 		$add1 = $_GET['fvalue'];
 		$add2 = $_GET['lvalue'];
 		$res= $add1 / $add2;
@@ -71,9 +70,9 @@ $operator=$_GET['operator'];
                     <input name="fvalue" type="text" placeholder="Any number"/>
 				</td>
             <tr>
-
 	<td>
             <select name="operator">
+				
 				<option>options</option>
 				<option>+</option>
 				<option>-</option>
