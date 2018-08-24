@@ -1,17 +1,19 @@
 <!doctype html>
-<html>
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <title>Calculator</title>
-</head>
-	
-<style>
+	<style>
+
 	table {
 		border: 5px groove #075BCD;
-		background: grey;
+		background: #212121;
 		margin: 0 auto;
 		font-size: 24px;
 		font-weight: 600;
+		color: WHITE;
+		text-align: center;
+		padding: 15px;
 	}
 	h1 {
 		text-align: center;
@@ -20,10 +22,14 @@
 	}
 	
 	</style>
-	
+</head>
+
 <body>
 	
 <?php
+	
+		$add1 = $_GET['fvalue'];
+		$add2 = $_GET['lvalue'];
 
 	if( isset( $_GET['calculate'] ))
 
@@ -32,31 +38,29 @@
 
 			if($operator=="+")
 			{
-			$add1 = $_GET['fvalue'];
-			$add2 = $_GET['lvalue'];
 			$res= $add1 + $add2;
 			}
 
 			elseif($operator=="-")
 			{
-			$add1 = $_GET['fvalue'];
-			$add2 = $_GET['lvalue'];
 			$res= $add1 - $add2;
 			}
 
 			elseif($operator=="*")
 			{
-			$add1 = $_GET['fvalue'];
-			$add2 = $_GET['lvalue'];
 			$res =$add1 * $add2;
 
 			}
 
 			elseif($operator=="/")
 			{
-			$add1 = $_GET['fvalue'];
-			$add2 = $_GET['lvalue'];
 			$res= $add1 / $add2;
+
+			}
+		
+			elseif($operator=="%")
+			{
+			$res= $add1 % $add2;
 
 			}
 
@@ -64,57 +68,68 @@
 
 ?>
 
-<form>
+<form action="<?=$_SERVER['PHP_SELF']?>" method="get">
 
 	<table>
-		<td>CALCULATOR 2000</td>
+		<tr>
+			<td>CASIO</td>
+		</tr>
+		<tr>
+			<td>Calculator</td>
+		</tr>
            <tr>
                <td>
                     <input name="fvalue" type="text" placeholder="Any number"/>
 				</td>
-            <tr>
+			</tr>
+           <tr>
 		<td>
             <select name="operator">
 				
-				<option>options</option>
+				<option>operators</option>
 				<option>+</option>
 				<option>-</option>
 				<option>*</option>
 				<option>/</option>
+				<option>%</option>
 						
 			</select>
 		</td>
                </tr>
             <tr>
-                <td>
-                    <input name="lvalue" type="text" placeholder="Any number"/></td>
+                <td><input name="lvalue" type="text" placeholder="Any number"/></td>
             </tr>
             <tr>
                 <td><input type="submit" name="calculate" value="Calculate" /></td>
             </tr>
             <tr>
-                <td ><?php echo $add1." ".$operator." ".$add1." = ".$res;?></td>
+                <td ><?php echo $add1." ".$operator." ".$add2." = ".$res;?></td>
             </tr>
        </table>
 
  </form>
 	
-	<?php if($_GET['fvalue']==NULL || $_GET['lvalue']==NULL)
-		{
-	echo "<h1>Enter Something in both boxes</h1>";
-	}
+<?php 
 	
+	if($_GET['fvalue']==NULL || $_GET['lvalue']==NULL)
+		{
+		
+	echo "<h1>Enter a interger into both fields</h1>";
+	}
 ?>
 
 <?php
 	
-	if($operator=="options" && $_GET['lvalue' . 'fvalue']!=NULL)
+	if($operator=="operators" && $_GET['lvalue']!=NULL)
 		{
-		echo "<h1>Remeber to select a option</h1>";
+		
+	echo "<h1>Remeber to select a operator</h1>";
 	}
-	
-
-	
+		elseif($operator=="operators" && $_GET['fvalue']!=NULL)
+		{
+		
+	echo "<h1>Remeber to select a operator</h1>";
+	}
 	
 ?>
 </body>
