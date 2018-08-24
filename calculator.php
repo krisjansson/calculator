@@ -4,6 +4,9 @@
 <meta charset="utf-8">
 <title>Calculator</title>
 	<style>
+		form{
+			margin-top: 10%;
+		}
 
 	table {
 		border: 5px groove #075BCD;
